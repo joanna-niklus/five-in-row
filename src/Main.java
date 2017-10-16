@@ -1,10 +1,21 @@
+import domain.Gameboard;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Hello, world.\nThis is a game of five in a row.");
-		// testing things
+
+		Gameboard gameboard = new Gameboard(7);
+		gameboard.makeMove("X", 2);
+		gameboard.makeMove("X", 3);
+		gameboard.makeMove("X", 3);
+		gameboard.makeMove("X", 3);
+		gameboard.makeMove("X", 3);
+		gameboard.makeMove("X", 3);
+		gameboard.makeMove("X", 3);
+		gameboard.makeMove("X", 3);
+		System.out.println(gameboard.toString());
+
 	}
 
 }
