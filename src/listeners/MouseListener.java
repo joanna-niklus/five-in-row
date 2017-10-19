@@ -21,13 +21,14 @@ public class MouseListener implements java.awt.event.MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+	if (!drawer.isEnabled()) {
+	    System.exit(0);
+	}
 	drawer.getBoard().makeMove(drawer.getMover(), Integer.parseInt(e.getComponent().getName()));
 	drawer.update(Integer.parseInt(e.getComponent().getName()));
 	if (!drawer.getBoard().hasWon().equals("")) {
 	    JLabel winner = new JLabel(drawer.getBoard().hasWon() + " has won!!", SwingConstants.CENTER);
-	    JOptionPane.showMessageDialog(null, winner,
-		    "InfoBox: " + "5 IN A ROW",
-		    JOptionPane.PLAIN_MESSAGE);
+	    JOptionPane.showMessageDialog(null, winner, "InfoBox: " + "5 IN A ROW", JOptionPane.PLAIN_MESSAGE);
 	    drawer.disableBoard();
 	}
     }
@@ -51,6 +52,5 @@ public class MouseListener implements java.awt.event.MouseListener {
     public void mouseReleased(MouseEvent e) {
 
     }
-
 
 }

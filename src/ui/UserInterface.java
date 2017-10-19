@@ -42,7 +42,7 @@ public class UserInterface extends JFrame implements Runnable {
     }
 
     private void createComponents(Container container) {
-	JPanel infoArea = new JPanel();
+	JPanel infoArea = new JPanel(); // TODO information about the mover
 	JPanel gameArea = new JPanel();
 	JPanel optionsArea = new JPanel();
 

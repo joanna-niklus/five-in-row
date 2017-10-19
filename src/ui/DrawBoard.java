@@ -162,6 +162,11 @@ public class DrawBoard extends JPanel {
 	}
     }
 
+    @Override
+    public boolean isEnabled() {
+	return this.enabled;
+    }
+
     public String getMover() {
 	if (this.mover.equals("O")) {
 	    this.mover = "X";
