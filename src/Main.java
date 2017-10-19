@@ -8,9 +8,8 @@ public class Main {
     public static void main(String[] args) {
 	System.out.println("Hello, world.\nThis is a game of five in a row.");
 
-	UserInterface ui = new UserInterface(new Gameboard(7));
+	UserInterface ui = new UserInterface(new Gameboard());
 	SwingUtilities.invokeLater(ui);
-	ui.run();
 
 	// Gameboard gameboard = new Gameboard(7);
 	// gameboard.makeMove("O", 2);

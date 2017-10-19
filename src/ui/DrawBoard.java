@@ -19,12 +19,14 @@ public class DrawBoard extends JPanel {
     private Container container;
     private Gameboard board;
     private List<List<JLabel>> labels;
+    private String mover;
 
     public DrawBoard(Container container, Gameboard board) {
 	this.container = container;
 	this.board = board;
 	this.enabled = true;
 	createBoard();
+	this.mover = "O";
     }
 
     public Gameboard getBoard() {
@@ -139,7 +141,16 @@ public class DrawBoard extends JPanel {
 		this.labels.get(column).get(i).setText(this.board.getBoard().get(column).get(6 - i).getType());
 	    }
 	}
+    }
 
+    public void update() {
+	if (this.enabled) {
+	    for (int i = 0; i < 7; i++) {
+		for (int j = 0; j < 7; j++) {
+		    this.labels.get(i).get(j).setText(this.board.getBoard().get(i).get(6 - j).getType());
+		}
+	    }
+	}
     }
 
     public void disableBoard() {
@@ -149,5 +160,20 @@ public class DrawBoard extends JPanel {
 		this.labels.get(i).get(j).setEnabled(false);
 	    }
 	}
+    }
+
+    public String getMover() {
+	if (this.mover.equals("O")) {
+	    this.mover = "X";
+	    return "X";
+	} else if (this.mover.equals("X")) {
+	    this.mover = "O";
+	    return "O";
+	}
+	return "_";
+    }
+
+    public String mover() {
+	return this.mover;
     }
 }

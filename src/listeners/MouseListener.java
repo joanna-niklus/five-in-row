@@ -3,8 +3,10 @@ package listeners;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import ui.DrawBoard;
 
@@ -19,10 +21,11 @@ public class MouseListener implements java.awt.event.MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-	drawer.getBoard().makeMove("X", Integer.parseInt(e.getComponent().getName()));
+	drawer.getBoard().makeMove(drawer.getMover(), Integer.parseInt(e.getComponent().getName()));
 	drawer.update(Integer.parseInt(e.getComponent().getName()));
 	if (!drawer.getBoard().hasWon().equals("")) {
-	    JOptionPane.showMessageDialog(null, "The winner is " + drawer.getBoard().hasWon() + "!",
+	    JLabel winner = new JLabel(drawer.getBoard().hasWon() + " has won!!", SwingConstants.CENTER);
+	    JOptionPane.showMessageDialog(null, winner,
 		    "InfoBox: " + "5 IN A ROW",
 		    JOptionPane.PLAIN_MESSAGE);
 	    drawer.disableBoard();

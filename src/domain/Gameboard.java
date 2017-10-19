@@ -5,14 +5,12 @@ import java.util.List;
 
 public class Gameboard {
     private List<List<Marker>> board;
-    private int dimensions;
 
-    public Gameboard(int dimensions) {
-	this.dimensions = dimensions;
-	this.board = new ArrayList<>(dimensions);
-	for (int i = 0; i < dimensions; i++) {
+    public Gameboard() {
+	this.board = new ArrayList<>(7);
+	for (int i = 0; i < 7; i++) {
 	    this.board.add(new ArrayList<Marker>());
-	    for (int j = 0; j < dimensions; j++) {
+	    for (int j = 0; j < 7; j++) {
 		this.board.get(i).add(new Marker(i, j, ""));
 	    }
 	}
@@ -85,7 +83,18 @@ public class Gameboard {
     }
 
     public int getDimensions() {
-	return this.dimensions;
+	return 7;
+    }
+
+    public void restart() {
+	this.board.clear();
+	this.board = new ArrayList<>(7);
+	for (int i = 0; i < 7; i++) {
+	    this.board.add(new ArrayList<Marker>());
+	    for (int j = 0; j < 7; j++) {
+		this.board.get(i).add(new Marker(i, j, ""));
+	    }
+	}
     }
 
 
