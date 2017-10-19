@@ -12,7 +12,7 @@ public class Marker {
 	}
 
 	public Marker(String type) {
-		this.type = type;
+	this(0, 0, type);
 	}
 
 	public int getxLoc() {
@@ -35,17 +35,10 @@ public class Marker {
 		return this.type.equals("_");
 	}
 
-	// public void setxLoc(int xLoc) {
-	// this.xLoc = xLoc;
-	// }
-	// public void setyLoc(int yLoc) {
-	// this.yLoc = yLoc;
-	// }
-
 	@Override
 	public String toString() {
-		// return this.type + "(" + this.xLoc + "," + this.yLoc + ")";
-		return " " + this.type + " ";
+	return this.type + " (" + this.xLoc + "," + this.yLoc + ")";
+	// return " " + this.type + " ";
 	}
 
 }
