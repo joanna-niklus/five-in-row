@@ -66,6 +66,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(0).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(0).add(label_0);
 	    panel_0.add(label_0);
 	}
@@ -74,6 +75,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(1).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(1).add(label_0);
 	    panel_1.add(label_0);
 	}
@@ -82,6 +84,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(2).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(2).add(label_0);
 	    panel_2.add(label_0);
 	}
@@ -90,6 +93,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(3).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(3).add(label_0);
 	    panel_3.add(label_0);
 	}
@@ -98,6 +102,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(4).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(4).add(label_0);
 	    panel_4.add(label_0);
 	}
@@ -106,6 +111,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(5).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(5).add(label_0);
 	    panel_5.add(label_0);
 	}
@@ -114,6 +120,7 @@ public class DrawBoard extends JPanel {
 	for (int i = 6; i >= 0; i--) {
 	    JLabel label_0 = new JLabel(board.getBoard().get(6).get(i).getType(), SwingConstants.CENTER);
 	    label_0.setBorder(BorderFactory.createLineBorder(Color.black));
+	    label_0.setFont(label_0.getFont().deriveFont((float) 100.00));
 	    labels.get(6).add(label_0);
 	    panel_6.add(label_0);
 	}
@@ -143,7 +150,6 @@ public class DrawBoard extends JPanel {
     public void update(int column) {
 	if (this.enabled) {
 	    this.info.setText(this.mover() + " MOVES");
-	    System.out.println(this.mover());
 	    for (int i = 0; i < 7; i++) {
 		this.labels.get(column).get(i).setText(this.board.getBoard().get(column).get(6 - i).getType());
 	    }
@@ -151,15 +157,15 @@ public class DrawBoard extends JPanel {
     }
 
     public void update() {
-	if (this.enabled) {
-	    this.info.setText("X MOVES");
-	    this.mover = "X";
-	    for (int i = 0; i < 7; i++) {
-		for (int j = 0; j < 7; j++) {
-		    this.labels.get(i).get(j).setText(this.board.getBoard().get(i).get(6 - j).getType());
-		}
+	enableBoard();
+	this.info.setText("X MOVES");
+	this.mover = "O";
+	for (int i = 0; i < 7; i++) {
+	    for (int j = 0; j < 7; j++) {
+		this.labels.get(i).get(j).setText(this.board.getBoard().get(i).get(6 - j).getType());
 	    }
 	}
+
     }
 
     public void disableBoard() {
@@ -167,6 +173,15 @@ public class DrawBoard extends JPanel {
 	for (int i = 0; i < 7; i++) {
 	    for (int j = 0; j < 7; j++) {
 		this.labels.get(i).get(j).setEnabled(false);
+	    }
+	}
+    }
+
+    private void enableBoard() {
+	this.enabled = true;
+	for (int i = 0; i < 7; i++) {
+	    for (int j = 0; j < 7; j++) {
+		this.labels.get(i).get(j).setEnabled(true);
 	    }
 	}
     }
