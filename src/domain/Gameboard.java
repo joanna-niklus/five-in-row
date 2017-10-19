@@ -13,7 +13,7 @@ public class Gameboard {
 	for (int i = 0; i < dimensions; i++) {
 	    this.board.add(new ArrayList<Marker>());
 	    for (int j = 0; j < dimensions; j++) {
-		this.board.get(i).add(new Marker(i, j, "_"));
+		this.board.get(i).add(new Marker(i, j, ""));
 	    }
 	}
     }
@@ -34,27 +34,27 @@ public class Gameboard {
 
     public String hasWon() {
 	String check = this.horisontalWin();
-	if (!check.equals("_")) {
+	if (!check.equals("")) {
 	    return check;
 	}
 	check = this.verticalWin();
-	if (!check.equals("_")) {
+	if (!check.equals("")) {
 	    return check;
 	}
 	// TODO diagonal win checks!
 
-	return "_";
+	return "";
     }
 
     private String verticalWin() {
-	String helperStr = "_";
+	String helperStr = "";
 	int helperInt = 0;
 	for (List<Marker> column : board) {
 	    for (Marker marker : column) {
 		if (helperInt == 5) {
 		    return helperStr;
 		}
-		if (marker.getType().equals(helperStr) && !helperStr.equals("_")) {
+		if (marker.getType().equals(helperStr) && !helperStr.equals("")) {
 		    helperInt++;
 		} else {
 		    helperStr = marker.getType();
@@ -62,7 +62,7 @@ public class Gameboard {
 		}
 	    }
 	}
-	return "_";
+	return "";
     }
 
     private String horisontalWin() {
@@ -87,6 +87,7 @@ public class Gameboard {
     public int getDimensions() {
 	return this.dimensions;
     }
+
 
     @Override
     public String toString() {

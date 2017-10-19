@@ -32,7 +32,7 @@ public class Marker {
 	}
 
 	public boolean isEmpty() {
-		return this.type.equals("_");
+	return this.type.equals("");
 	}
 
 	@Override
