@@ -2,23 +2,14 @@ package listeners;
 
 import java.awt.event.MouseEvent;
 
-import javax.swing.JLabel;
-
-import ui.DrawBoard;
-
 public class MouseInfoListener implements java.awt.event.MouseListener{
-    private DrawBoard board;
-    private JLabel info;
     
 
-    public MouseInfoListener(DrawBoard board, JLabel info) {
-	this.board = board;
-	this.info = info;
+    public MouseInfoListener() {
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-	info.setText("MOVER: " + board.mover());
     }
 
     @Override

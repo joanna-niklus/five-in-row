@@ -36,6 +36,7 @@ public class MouseListener implements java.awt.event.MouseListener {
     @Override
     public void mouseEntered(MouseEvent e) {
 	panel.setBackground(Color.LIGHT_GRAY);
+
     }
 
     @Override

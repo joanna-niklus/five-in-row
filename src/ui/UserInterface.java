@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
@@ -48,13 +49,17 @@ public class UserInterface extends JFrame implements Runnable {
 
 	container.setLayout(new BorderLayout());
 
-
 	gameArea.setLayout(new GridLayout(1, 7));
 	DrawBoard draw = new DrawBoard(gameArea, board); // TODO make this better..
 
+	JLabel info = new JLabel("X MOVES");
+	draw.addInfoLabel(info);
+
 	JButton restart = new JButton("Restart");
 	restart.addActionListener(new ActionListenerButton(restart, board, draw));
+
 	optionsArea.add(restart);
+	infoArea.add(info);
 
 	container.add(infoArea, BorderLayout.NORTH);
 	container.add(gameArea, BorderLayout.CENTER);

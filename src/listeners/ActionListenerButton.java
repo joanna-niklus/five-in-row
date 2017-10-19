@@ -21,7 +21,6 @@ public class ActionListenerButton implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-	System.out.println("JUP");
 	this.board.restart();
 	this.drawer.update();
 
